@@ -1,13 +1,45 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import "./ExperienceCard.css";
 import { Fade } from "react-reveal";
 
 class ExperienceCard extends Component {
+  constructor(props) {
+    super(props);
+    this.descriptionRef = createRef();
+    this.state = {
+      lineHeight: 100,
+    };
+  }
+
+  componentDidMount() {
+    this.updateLineHeight();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.experience !== this.props.experience) {
+      this.updateLineHeight();
+      console.log(
+        "Descriptions length:",
+        this.props.experience["description"].length
+      );
+    }
+  }
+
+  updateLineHeight() {
+    if (this.descriptionRef.current) {
+      this.setState({
+        lineHeight: this.descriptionRef.current.clientHeight + 145,
+      }); // Adding extra margin
+    }
+  }
+
   render() {
     const experience = this.props.experience;
     const index = this.props.index;
     const totalCards = this.props.totalCards;
     const theme = this.props.theme;
+    const descriptions = this.props.experience["description"];
+
     return (
       <div
         className="experience-list-item"
@@ -15,11 +47,13 @@ class ExperienceCard extends Component {
       >
         <Fade left duration={2000} distance="40px">
           <div className="experience-card-logo-div">
-            <img
-              className="experience-card-logo"
-              src={require(`../../assets/images/${experience["logo_path"]}`)}
-              alt=""
-            />
+            {experience["logo_path"] && (
+              <img
+                className="experience-card-logo"
+                src={require(`../../assets/images/${experience["logo_path"]}`)}
+                alt=""
+              />
+            )}
           </div>
         </Fade>
         <div className="experience-card-stepper">
@@ -35,11 +69,12 @@ class ExperienceCard extends Component {
           {index !== totalCards - 1 && (
             <div
               style={{
-                height: 190,
+                height: this.state.lineHeight,
                 width: 2,
                 backgroundColor: `${theme.headerColor}`,
                 position: "absolute",
                 marginTop: 20,
+                zIndex: 10,
               }}
             />
           )}
@@ -99,6 +134,7 @@ class ExperienceCard extends Component {
                 </div>
               </div>
               <div
+                ref={this.descriptionRef}
                 style={{
                   display: "flex",
                   justifyContent: "flex-start",
@@ -106,7 +142,15 @@ class ExperienceCard extends Component {
                 }}
               >
                 <div className="repo-description" />
-                {experience["description"]}
+                {descriptions.length === 1 ? (
+                  <p>{descriptions[0]}</p>
+                ) : (
+                  <ul>
+                    {descriptions.map((description, index) => (
+                      <li key={index}>{description}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
