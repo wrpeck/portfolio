@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Header.css";
 import { Fade } from "react-reveal";
 import { NavLink, Link } from "react-router-dom";
-import { greeting, settings } from "../../portfolio.js";
+import { settings } from "../../portfolio.js";
 import SeoHeader from "../seoHeader/SeoHeader";
 import logoSvg from "../../assets/images/wp-logo-no-background.svg";
 
@@ -15,8 +15,6 @@ const onMouseOut = (event) => {
   const el = event.target;
   el.style.backgroundColor = "transparent";
 };
-
-const logoPath = "src/assets/images/wp-logo-no-background.svg";
 
 class Header extends Component {
   render() {

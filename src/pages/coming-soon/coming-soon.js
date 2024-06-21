@@ -5,7 +5,6 @@ import logoSvg from "../../assets/images/wp-logo-no-background.svg";
 const ComingSoon = ({ theme }) => {
   const email = "wesley@wesleyp.dev";
   const linkedInUrl = "https://www.linkedin.com/in/wesley-peck/"; // Replace with your LinkedIn profile URL
-  const imagePath = "assets/images/codeInLogo.png";
 
   return (
     <div className="coming-soon" style={{ color: theme.text }}>
