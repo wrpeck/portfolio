@@ -9,7 +9,7 @@ const ComingSoon = ({ theme }) => {
   return (
     <div className="coming-soon" style={{ color: theme.text }}>
       <div className="coming-soon-content">
-        <img src={logoSvg} className="logo" />
+        <img src={logoSvg} className="logo" alt="WesleyP.dev logo" />
         <h1 className="coming-soon-title">Coming Soon!</h1>
         <p className="coming-soon-message">
           My portfolio site is under construction, but it will be here soon.

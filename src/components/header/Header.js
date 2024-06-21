@@ -27,7 +27,11 @@ class Header extends Component {
           <header className="header">
             <NavLink to={link} tag={Link} className="logo">
               <span>
-                <img src={logoSvg} className="header-logo" />
+                <img
+                  src={logoSvg}
+                  className="header-logo"
+                  alt="WesleyP.dev logo"
+                />
               </span>
               {/* <span style={{ color: theme.text }}> &lt;</span>
               <span className="logo-name" style={{ color: theme.text }}>
