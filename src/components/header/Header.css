@@ -146,3 +146,8 @@
     font-size: 12px;
   }
 }
+
+.header-logo {
+  height: 5vw;
+  /* width: 200px; */
+}
