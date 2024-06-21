@@ -3,6 +3,7 @@
 // Website related settings
 const settings = {
   isSplash: false, // Change this to false if you don't want Splash screen.
+  comingSoon: true,
 };
 
 //SEO Related settings
@@ -20,8 +21,7 @@ const seo = {
 //Home Page
 const greeting = {
   title: "Wesley Peck",
-  logo_name: "AshutoshHathidara",
-  // nickname: "layman_brother",
+  logo_name: "Wesley Peck",
   subTitle:
     "A technical product manager focused on bringing innovation, collaboration, and a sense of humor to software development.",
   // resumeLink:
